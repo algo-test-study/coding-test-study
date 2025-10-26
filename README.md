@@ -20,7 +20,7 @@
 
 ## 📝 제출 규칙
 
-### 1. GitHub 제출 방식
+### GitHub 제출 방식
 ```
 Repository 구조:
 ├── Week01/
@@ -40,27 +40,16 @@ Repository 구조:
 - 폴더: `Week01`, `Week02`, ...
 - 파일명: `MMDD_출처_문제이름_이름.확장자`
   - `MMDD`: 문제 푼 날짜 (예: 1201 = 12월 1일)
-  - `출처`: BOJ(백준), PGS(프로그래머스), LTC(LeetCode) 등
-  - `문제이름`: 공백 없이 작성
+  - `출처`: BOJ(백준), PGS(프로그래머스), LTC(LeetCode) 등 (3자리 약어)
+  - `문제이름`: 공백 없이 설정
   - `이름`: 본인 이름
-  
+    
 **출처 약어:**
 - BOJ: 백준 (Baekjoon Online Judge)
 - PGS: 프로그래머스 (Programmers)
 - LTC: 리트코드 (LeetCode)
 - CFS: 코드포스 (Codeforces)
 - SEA: 삼성 SW Expert Academy
-
-### 2. 파일명 규칙
-- 형식: `MMDD_출처_문제이름_이름.확장자`
-- 예시: 
-  - `1201_BOJ_두수의합_홍길동.py`
-  - `1215_PGS_타겟넘버_김철수.cpp`
-  - `0103_LTC_ValidParentheses_이영희.java`
-  - `1220_BOJ_미로탐색_박민수.py`
-- MMDD: 문제를 푼 날짜 (4자리)
-- 출처: BOJ, PGS, LTC 등 (3-4자리 약어)
-- 문제이름: 공백 없이, 언더스코어(_) 사용 가능
 
 ---
 
@@ -83,10 +72,13 @@ Repository 구조:
 
 ## 📚 참고 자료
 
-### 추천 학습 자료
+### 문제 참고
 - [백준 단계별로 풀어보기](https://www.acmicpc.net/step)
 - [프로그래머스 코딩테스트 연습](https://programmers.co.kr/learn/challenges)
 - [알고리즘 강의 - 바킹독](https://github.com/encrypted-def/basic-algo-lecture)
+- [solved.ac](https://solved.ac/problems/tags)
+- [참고 레포 1](https://github.com/CodeTest-StudyGroup/Code-Test-Study?tab=readme-ov-file)
+- [참고 레포 2](https://github.com/tony9402/baekjoon)
 
 ### 유용한 사이트
 - [Visualgo](https://visualgo.net/): 알고리즘 시각화
