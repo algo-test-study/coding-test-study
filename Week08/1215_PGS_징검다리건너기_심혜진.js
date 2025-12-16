@@ -1,21 +1,22 @@
 function canCross(stones,k,n) {
-  let zeroCheck = 0;
+  let chk=0;
   for(let i=0; i<stones.length; i++) {
     if(stones[i]-n<=0) {
-      zeroCheck++;
-      if(zeroCheck>k) {
+      chk++;
+      if(chk>k) {
         return false;
       }
     } else {
-      zeroCheck = 0;
+      chk=0;
     }
   }
   return true;
 };
 
 function solution(stones, k) {
-  let left = 1;//min
-  let right = Math.max(...stones);//max
+  let left = 1;
+  let right = 0;
+  for (const max of stones) if( max > right ) right = max;
   let answer = 0;
 
   while(left<=right) {
