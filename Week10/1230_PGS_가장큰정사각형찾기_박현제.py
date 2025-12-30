@@ -15,16 +15,9 @@ def solution(board):
     dp = [[0]*m for i in range(n)]
     
     side = 0
-    for i in range(n):
-        dp[i][0] = board[i][0]
-        if dp[i][0] == 1: side = 1
-    for j in range(m):
-        dp[0][j] = board[0][j]
-        if dp[0][j] == 1: side = 1
-        
     
-    for i in range(1, n):
-        for j in range(1, m):
+    for i in range(0, n):
+        for j in range(0, m):
             if board[i][j] == 1:
                 if i == 0 or j == 0:
                     dp[i][j] = board[i][j]
