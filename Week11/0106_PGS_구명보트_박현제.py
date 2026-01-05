@@ -17,7 +17,7 @@ def solution(people, limit):
     s = 0
     e = n - 1
   
-    while s <= e and s < n:
+    while s <= e:
         # if s == e: # 마지막 사람이기 떄문에 total <= limit 이든 말든 상관없다. 
         #     answer += 1
         #     break
