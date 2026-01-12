@@ -4,8 +4,9 @@
 - 절단기 높이 h <= 10^9 -> 최적화: 나무 max값
 - TTTTFFFF -> 파라메트릭 서치
 시간복잡도
-- O(log(h))
-"""n, m = map(int, input().split())
+- O(log(max(lst)))
+"""
+n, m = map(int, input().split())
 
 lst = list(map(int, input().split()))
 
