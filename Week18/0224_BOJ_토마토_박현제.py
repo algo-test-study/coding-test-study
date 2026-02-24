@@ -6,7 +6,7 @@
 - 첫 날 -> 0일부터 시작
 
 시간복잡도
--O(n^2)
+-O(nm)
 """
 import sys
 from collections import deque
