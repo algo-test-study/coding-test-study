@@ -1,5 +1,5 @@
 """
-그리디, O(n)
+그리디, O(nlogn)
 """
 def solution(A, B):
     answer = 0
