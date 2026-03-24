@@ -54,10 +54,10 @@ class Solution {
                 
                 if (dx[k] != 0) { 
                     if (y - 1 >= 0 && place[x].charAt(y - 1) == 'P') return false;
-                    if (y + 1 < 5 && place[x].charAt(y + 1) == 'P') return false;
+                    if (y + 1 < SIZE && place[x].charAt(y + 1) == 'P') return false;
                 } else {
                     if (x - 1 >= 0 && place[x - 1].charAt(y) == 'P') return false;
-                    if (x + 1 < 5 && place[x + 1].charAt(y) == 'P') return false;
+                    if (x + 1 < SIZE && place[x + 1].charAt(y) == 'P') return false;
                 }
             }
         }
