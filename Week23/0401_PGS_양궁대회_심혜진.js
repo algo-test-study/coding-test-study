@@ -1,60 +1,72 @@
-function combinationsWithRepetition(arr, n) {
+function combinationWithRepitition(arr, n) {
   if (n === 1) return arr.map((v) => [v]);
-  const result = [];
+  let result = [];
 
-  arr.forEach((fixed, idx, arr) => {
-    const rest = arr.slice(idx);
-    const combis = combinationsWithRepetition(rest, n - 1);
-    const combine = combis.map((v) => [fixed, ...v]);
-    result.push(...combine);
+  arr.forEach((fixed, idx) => {
+    let rest = arr.slice(idx)
+    let combis = combinationWithRepitition(rest, n - 1)
+    let combine = combis.map((v) => [fixed, ...v])
+    result.push(...combine)
   });
 
   return result;
 }
 
-
 function solution(n, info) {
-  let maxdiff = 0;
-  let maxComb = {};
+  let maxDiff = 0;
+  let maxScore = {};
+  let answer = Array(11).fill(0);
 
-  function calculateScore(combi) {
-    let score1 = 0;
-    let score2 = 0;
+  function calculateScore(lionArr) {
+    let apeachScore = 0;
+    let lionScore = 0;
 
     for (let i = 1; i <= 10; i++) {
-      if (info[10 - i] < combi.filter((x) => x === i).length) {
-        score1 += i;
+
+      //1점을 맞힌 화살부터 계산, 0은 계산 안함
+      if (info[10 - i] < lionArr.filter(x => x === i).length) {
+        lionScore += i;
       } else if (info[10 - i] > 0) {
-        score2 += i;
+        apeachScore += i;
       }
     }
-    return [score1, score2];
+
+    return [apeachScore, lionScore];
   }
 
-  function calculateDiff(diff, cnt) {
-    if (diff > maxdiff) {
-      maxComb = { ...cnt };
-      maxdiff = diff;
-    }
+  function switchDiff(diff, cnt) {
+    maxDiff = diff;
+    maxScore = cnt;
   }
 
-  for (const combi of combinationsWithRepetition([...Array(11).keys()], n)) {
-    const cnt = combi.reduce((acc, cur) => {
+  for (const lionArr of combinationWithRepitition([...Array(11).keys()], n)) {
+    //라이언의 양궁 점수 계산할 수 있는 배열이 준비가 됨 객체를 저장해둠...
+    let cnt = lionArr.reduce((acc, cur) => {
       acc[cur] = (acc[cur] || 0) + 1;
       return acc;
     }, {});
-    const [score1, score2] = calculateScore(combi);
-    const diff = score1 - score2;
-    calculateDiff(diff, cnt);
+
+    //둘의 점수를 계산해봄
+    let [apeachScore, lionScore] = calculateScore(lionArr);
+
+    if (apeachScore >= lionScore) continue;
+
+
+    let diff = lionScore - apeachScore;
+
+    //maxDiff보다 크면? maxDiff를 교체함
+    if (diff > maxDiff) {
+      switchDiff(diff, cnt);
+    }
   }
 
-  if (maxdiff > 0) {
-    const answer = Array(11).fill(0);
-    for (const n of Object.keys(maxComb)) {
-      answer[10 - n] = maxComb[n];
+  if (maxDiff > 0) {
+    for (const key in maxScore) {
+      answer[10 - key] = maxScore[key] || 0;
     }
-    return answer;
   } else {
-    return [-1];
+    answer = [-1];
   }
+
+  return answer;
 }
