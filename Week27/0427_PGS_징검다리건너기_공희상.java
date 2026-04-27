@@ -1,12 +1,8 @@
 class Solution {
     public int solution(int[] stones, int k) {
         int left = 1;
-        int right = 0;
+        int right = 200_000_000;
         int answer = 0;
-        
-        for (int stone : stones) {
-            right = Math.max(right, stone);
-        }
         
         while (left <= right) {
             int mid = (left + right) / 2;
