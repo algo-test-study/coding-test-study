@@ -15,8 +15,8 @@ class Immigration {
     }
 
     public long getMinScreeningTime() {
-        long left = 1;//Minimum Judge Time Init: 1
-        long right = (long) times[times.length - 1] * people;//Maximum Judge Time: Max time * Number of People
+        long left = 1;
+        long right = (long) times[times.length - 1] * people;
         long result = 0;
 
         while (left <= right) {
