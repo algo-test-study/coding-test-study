@@ -8,8 +8,6 @@ def solution(dirs):
     
     visited = set()
     
-    cnt = 1
-    
     for i in dirs:
         dx, dy = d[i]
 
