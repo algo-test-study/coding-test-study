@@ -23,4 +23,11 @@ function solution(sequence, k) {
       if (right < sequence.length) {
         sum += sequence[right];
       }
-    } else
+    } else {
+      sum -= sequence[left];
+      left += 1;
+    }
+  }
+
+  return [bestStart, bestEnd];
+}
