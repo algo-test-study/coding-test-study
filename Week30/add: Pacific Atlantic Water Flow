@@ -17,7 +17,6 @@ class Solution {
         pacific = new boolean[rows][cols];
         atlantic = new boolean[rows][cols];
 
-        // Pacific (위, 왼쪽)
         for (int r = 0; r < rows; r++) {
             dfs(r, 0, pacific);
             dfs(r, cols - 1, atlantic);
