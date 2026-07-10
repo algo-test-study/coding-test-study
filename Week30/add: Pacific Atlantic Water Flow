@@ -1,0 +1,64 @@
+class Solution {
+
+    private int[][] heights;
+    private int rows, cols;
+    private boolean[][] pacific;
+    private boolean[][] atlantic;
+
+    private final int[][] dirs = {
+        {1, 0}, {-1, 0}, {0, 1}, {0, -1}
+    };
+
+    public List<List<Integer>> pacificAtlantic(int[][] heights) {
+        this.heights = heights;
+        rows = heights.length;
+        cols = heights[0].length;
+
+        pacific = new boolean[rows][cols];
+        atlantic = new boolean[rows][cols];
+
+        // Pacific (위, 왼쪽)
+        for (int r = 0; r < rows; r++) {
+            dfs(r, 0, pacific);
+            dfs(r, cols - 1, atlantic);
+        }
+
+        // Atlantic (아래, 오른쪽)
+        for (int c = 0; c < cols; c++) {
+            dfs(0, c, pacific);
+            dfs(rows - 1, c, atlantic);
+        }
+
+        List<List<Integer>> answer = new ArrayList<>();
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (pacific[r][c] && atlantic[r][c]) {
+                    answer.add(Arrays.asList(r, c));
+                }
+            }
+        }
+
+        return answer;
+    }
+
+    private void dfs(int r, int c, boolean[][] visited) {
+        visited[r][c] = true;
+
+        for (int[] d : dirs) {
+            int nr = r + d[0];
+            int nc = c + d[1];
+
+            if (nr < 0 || nr >= rows || nc < 0 || nc >= cols)
+                continue;
+
+            if (visited[nr][nc])
+                continue;
+
+        if (heights[nr][nc] < heights[r][c])
+                continue;
+
+            dfs(nr, nc, visited);
+        }
+    }
+}
