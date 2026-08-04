@@ -5,7 +5,7 @@ amount 를 만들 수 있는 최소 동전 개수
 1. 일단 공약수가 아니니까 그리디는 아님
 2. dp
 - dp[i] : i 값을 만드는 최소 동전 개수
-- O(amount)
+- O(amount * len(coins))
 """
 
 class Solution:
