@@ -67,3 +67,31 @@ function solution(board, moves) {
     return answer;
 }
 */
+
+/*
+function solution(board, moves){
+    let answer = 0;
+    
+    let stack = [];
+    
+    for(let i=0; i<moves.length; i++){
+        let column = moves[i] - 1;
+        for(let j=0; j<board.length; j++){
+            let row = board[j][column];
+            
+            if(row !== 0){
+                if(stack.length>0 && stack[stack.length-1] === row){
+                    stack.pop();
+                    answer += 2;
+                }else{
+                    stack.push(row);
+                }
+                board[j][column]=0;
+                break;
+            }
+        }
+    }
+    
+    return answer;
+}
+*/
