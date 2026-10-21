@@ -4,27 +4,21 @@ class Solution {
     public int[] solution(String s) {
         int transCnt = 0;
         int zeroCnt = 0;
-        
-        int n = s.length();
-        
+    
         while(!s.equals("1")){
-            int cnt = 0;
-            StringBuilder sb = new StringBuilder();
+            int oneCnt = 0;
             
-            for(int i=0; i<n; i++){
+            for(int i = 0; i < s.length(); i++){
                 if(s.charAt(i) == '0'){
-                    cnt++;
+                    zeroCnt++;
                 }else{
-                    sb.append(1);
+                    oneCnt++;
                 }
             }
-            s = sb.toString();
 
-            s = Integer.toBinaryString(sb.length());
+            s = Integer.toBinaryString(oneCnt);
             
             transCnt++;
-            zeroCnt += cnt;
-            n = s.length();
         }
         
         return new int []{transCnt, zeroCnt};
